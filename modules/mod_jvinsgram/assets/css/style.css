@@ -1,0 +1,17 @@
+.jvins-item {
+  margin-bottom: 20px;
+}
+.jvins-item--thumb img {
+  width: 100%;
+}
+.jvins-item--description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  margin: 15px 0;
+}
+.jvins-item--tool li {
+  display: inline-block;
+  margin-right: 10px;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="package" version="1.6">
+   <name>jvss</name>
+   <author>joomlavi</author>
+   <creationDate>September 2012</creationDate>
+   <packagename>jvss</packagename>
+   <version>1.0.2</version>
+   <url>http://www.joomlavi.com/</url>
+   <packager>joomlavi</packager>
+   <packagerurl>http://www.joomlavi.com/</packagerurl>
+   <description />
+   <update>http://www.joomlavi.com/</update>
+   <files folder="packages">
+      <file type="component" id="jvss">com_jvss.zip</file>
+      <file type="plugin" id="jvss">loadjvss.zip</file>
+      <file type="module" id="jvss">mod_jvss.zip</file>
+   </files>
+</extension>

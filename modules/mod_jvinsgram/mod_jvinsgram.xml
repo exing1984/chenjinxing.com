@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <extension type="module" version="2.5" client="site" method="upgrade">
+        <name>JV Insgram</name>
+        <author>Open Source Code Solutions Co</author>
+        <creationDate>July 2012</creationDate>
+        <copyright>Copyright (C) 2011 joomlavi.com. All Rights Reserved.</copyright>
+        <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL or later.</license>
+        <authorEmail>info@joomlavi.com</authorEmail>
+        <authorUrl>http://www.joomlavi.com</authorUrl>
+        <version>1.5</version>
+        <description>MOD_JVINSGRAM_DESCRIPTION</description>
+        <files>
+            <filename module="mod_jvinsgram">mod_jvinsgram.php</filename>
+            <folder>assets</folder>
+            <folder>fields</folder>
+            <folder>libraries</folder>
+            <folder>language</folder>
+            <folder>tmpl</folder>
+            <filename>index.html</filename>
+            <filename>loadInstagram.php</filename>
+            <filename>helper.php</filename>
+            <filename>mod_jvinsgram.xml</filename>
+        </files>
+        <languages folder="language">
+            <language tag="en-GB">en-GB.mod_jvinsgram.ini</language>
+            <language tag="en-GB">en-GB.mod_jvinsgram.sys.ini</language>
+        </languages>
+        <config>
+            <fields name="params">
+                <fieldset name="basic">
+                    <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                    <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                </fieldset>
+                <fieldset name="instagram" label="Instagram">
+                    <field name="clientid" type="text" size="60" label="MOD_JVINSGRAM_SERVER_SETTING_CLIENT_ID_LBL" description="MOD_JVINSGRAM_SERVER_SETTING_CLIENT_ID_DESC" />
+                    <field name="clientsecret" type="text" size="60" label="MOD_JVINSGRAM_SERVER_SETTING_CLIENT_SECRET_LBL" description="MOD_JVINSGRAM_SERVER_SETTING_CLIENT_SECRET_DESC" />
+                    <field name="redirecturi" type="text" size="60" label="MOD_JVINSGRAM_SERVER_SETTING_REDIRECT_URI_LBL" description="MOD_JVINSGRAM_SERVER_SETTING_REDIRECT_URI_DESC" />
+                    <field addfieldpath="/modules/mod_jvinsgram/fields" name="connectbutton" type="connect" label="" description="" />
+                    <field name="accesstoken" type="text" size="60" label="MOD_JVINSGRAM_SERVER_SETTING_ACCESS_TOKEN_LBL" description="MOD_JVINSGRAM_SERVER_SETTING_ACCESS_TOKEN_DESC" default="175642459.f201cd8.df1351898c814dca95e916a1ddaa6bb7" />
+                </fieldset>
+                <fieldset name="items" label="Display Feeds">
+                    <field name="numofimage" type="text" default="10" label="MOD_JVINSGRAM_IMAGE_SETTING_NUMBER_OF_IMAGE_LBL" description="MOD_JVINSGRAM_IMAGE_SETTING_NUMBER_OF_IMAGE_DESC" />
+                    <field name="imagetype" type="list" label="MOD_JVINSGRAM_SOURCE_SETTING_SOURCE_LBL" default="mostpopular" description="MOD_JVINSGRAM_SOURCE_SETTING_SOURCE_DESC">
+                        <option value="mostpopular">Most popular images from Instagram</option>
+                        <option value="recentuser">Most recent images published by a user</option>
+                        <option value="userfeed">Authenticated user's feed</option>
+                        <option value="userlikes">Authenticated user's list of image they've liked</option>
+                        <option value="recenttag">Get list recent tagged images</option>
+                    </field>
+                    <field name="userid" type="text" label="MOD_JVINSGRAM_SOURCE_SETTING_USERID_LBL" description="MOD_JVINSGRAM_SOURCE_SETTING_USERID_DESC" default="1467693783" />
+                    <field name="tagname" type="text" label="MOD_JVINSGRAM_SOURCE_SETTING_TAGNAME_LBL" description="MOD_JVINSGRAM_SOURCE_SETTING_TAGNAME_DESC" />
+                    <field name="itemscolumn" type="list" default="1" label="Columns">
+                        <option value="12">1</option>
+                        <option value="6">2</option>
+                        <option value="4">3</option>
+                        <option value="3">4</option>
+                        <option value="2">6</option>
+                    </field>
+                    <field name="description" type="textarea" label="Description" />
+                </fieldset>
+                <fieldset name="item" label="Item">
+                    <field name="itemthumbnail" type="list" default="1" label="Thumbnail">
+                        <option value="1">Thumbnail (150x150)</option>
+                        <option value="2">Low resolution (320x320)</option>
+                        <option value="3">Standard resolution (640x640)</option>
+                    </field>
+                    <field name="itemcaption" type="radio" default="1" label="Caption" class="btn-group">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </field>
+                    <field name="itemlike" type="radio" default="1" label="Like" class="btn-group">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </field>
+                    <field name="itemcomment" type="radio" default="1" label="Comment" class="btn-group">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </field>
+                </fieldset>
+                <fieldset name="guide" label="MOD_JVINSGRAM_GUIDE_LBL">
+                    <field name="guide" type="guide" label="MOD_JVINSGRAM_GUIDE_LBL" description="MOD_JVINSGRAM_GUIDE_DESC" />
+                </fieldset>
+            </fields>
+        </config>
+    </extension>

@@ -1,0 +1,494 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.panel {
+  margin-bottom: @line-height-computed;
+  background-color: @panel-bg;
+  border: 1px solid transparent;
+}
+
+// Panel contents
+.panel-body {
+  padding: @panel-body-padding;
+  &:extend(.clearfix all);
+}
+
+// Optional heading
+.panel-heading {
+  padding: @panel-heading-padding;
+  border-bottom: 1px solid transparent;
+
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: @font-size-base * 1.076923076923077; //ceil((@font-size-base * 1.125));
+  color: inherit;
+
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    color: inherit;
+  }
+
+  > a > i {
+    margin-right: 13px;
+  }
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  padding: @panel-footer-padding;
+  background-color: @panel-footer-bg;
+  border-top: 1px solid @panel-inner-border;
+}
+
+
+// List groups in panels
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.panel {
+  > .list-group,
+  > .panel-collapse > .list-group {
+    margin-bottom: 0;
+
+    .list-group-item {
+      border-width: 1px 0;
+      border-radius: 0;
+    }
+
+
+  }
+  > .panel-heading + .panel-collapse > .list-group {
+    .list-group-item:first-child {
+      .border-top-radius(0);
+    }
+  }
+}
+// Collapse space between when there's no additional content.
+.panel-heading + .list-group {
+  .list-group-item:first-child {
+    border-top-width: 0;
+  }
+}
+.list-group + .panel-footer {
+  border-top-width: 0;
+}
+
+// Tables in panels
+//
+// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// watch it go full width.
+
+.panel {
+  > .table,
+  > .table-responsive > .table,
+  > .panel-collapse > .table {
+    margin-bottom: 0;
+
+    caption {
+      padding-left: @panel-body-padding;
+      padding-right: @panel-body-padding;
+    }
+  }
+
+  > .panel-body + .table,
+  > .panel-body + .table-responsive,
+  > .table + .panel-body,
+  > .table-responsive + .panel-body {
+    border-top: 1px solid @table-border-color;
+  }
+  > .table > tbody:first-child > tr:first-child th,
+  > .table > tbody:first-child > tr:first-child td {
+    border-top: 0;
+  }
+  > .table-bordered,
+  > .table-responsive > .table-bordered {
+    border: 0;
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    > thead,
+    > tbody {
+      > tr:first-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  > .table-responsive {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+// Collapsable panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.panel-group {
+  // margin-bottom: @line-height-computed;
+
+  // Tighten up margin so it's only between panels
+  .panel {
+    margin-bottom: 0;
+    + .panel {
+      margin-top: 2px;
+    }
+  }
+
+  .panel-heading {
+    border-bottom: 0;
+    + .panel-collapse > .panel-body,
+    + .panel-collapse > .list-group {
+      border-top: 1px solid @panel-inner-border;
+    }
+  }
+
+  .panel-footer {
+    border-top: 0;
+    + .panel-collapse .panel-body {
+      border-bottom: 1px solid @panel-inner-border;
+    }
+  }
+}
+
+
+// Contextual variations
+.panel-default {
+  .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+}
+.panel-primary {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.panel-success {
+  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.panel-info {
+  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.panel-warning {
+  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}
+.panel-danger {
+  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}
+.panel-darker {
+  .panel-variant(@panel-darker-border; @panel-darker-text; @panel-darker-heading-bg; @panel-darker-border);
+}
+
+// Fix collapse motool
+.collapse {
+  overflow: hidden;
+}
+
+// Accordions & Toggles
+
+.accordion {
+  &-cover {
+    width: 100%;
+  }
+  &-1,
+  &-2{
+    &.panel-group {
+      .panel {
+        + .panel {
+          margin-top: 5px;
+        }
+        .panel-heading {
+          padding: 10px 40px 10px 15px;
+          position: relative;
+          .panel-title {
+            font-size: 14px;
+            text-transform: uppercase;
+          }
+        }
+        .panel-body {
+          padding: 15px;
+        }
+        &.active {
+          .panel-heading .accordion-icon {
+            span:first-child {
+              display: none;
+            }
+            .fa:before {
+              content: "\f077";
+            }
+          }
+        }
+      }
+    }
+    .accordion-icon {
+      position: absolute;
+      width: 31px;
+      height: 31px;
+      top: 50%;
+      right: 5px;
+      margin-top: -15px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: inherit;
+      span {
+        display: block;
+        position: absolute;
+        background-color: #666;
+        top: 50%;
+        left: 50%;
+        border-radius: 2px;
+        &:first-child {
+          width: 3px;
+          height: 11px;
+          margin-top: -5.5px; 
+          margin-left: -1.5px;         
+        }
+        &:last-child {
+          width: 11px;
+          height: 3px;
+          top: 50%;
+          left: 50%;
+          margin-top: -1.5px;
+          margin-left: -5.5px;         
+        }
+      }
+    }
+    
+    .panel-default {
+      border-color: #efefef;
+      > .panel-heading {
+        background-color: #fff;
+        border-color: #efefef;
+        + .panel-collapse > .panel-body {
+          border-color: #efefef;
+        }
+      }
+    }
+    .panel-var(@color; @background) {
+      border: none;
+      > .panel-heading {
+        color: @color;
+        background-color: @background;
+        border: none;
+        .accordion-icon {
+          span {
+            background-color: @color;
+          }
+        }
+        + .panel-collapse > .panel-body {
+          border: 1px solid #efefef;
+          border-top-color: transparent;
+        }
+      }
+    }
+    .panel-primary {
+      .panel-var(#fff; @brand-primary); 
+    }
+    .panel-danger {
+      .panel-var(#fff; @brand-danger); 
+    }
+    .panel-success {
+      .panel-var(#fff; @brand-success); 
+    }
+    .panel-info {
+      .panel-var(#fff; @brand-info); 
+    }
+    .panel-warning {
+      .panel-var(#fff; @brand-warning);
+    }
+    .panel-darker {
+      .panel-var(#fff; @panel-darker-heading-bg);
+    }
+  }
+  &-2{
+    &.panel-group {
+      .panel {
+        .panel-heading {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+  &-3,
+  &-4{
+    &.panel-group {
+      .panel {
+        + .panel {
+          margin-top: 5px;
+        }
+        .panel-heading {
+          padding: 10px 15px 10px 50px;
+          position: relative;
+          .panel-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            .fa {
+              margin-right: 0;
+              margin-left: 10px;
+              float: right;
+            }
+          }
+        }
+        .panel-body {
+          padding: 15px;
+        }
+        &.active {
+          .panel-heading .accordion-icon {
+            span:first-child {
+              display: none;
+            }
+            .fa:before {
+              content: "\f077";
+            }
+          }
+        }
+      }
+    }
+    .accordion-icon {
+      position: absolute;
+      width: 36px;
+      height: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      line-height: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: inherit;
+      border-right: 1px solid transparent;
+      span {
+        display: block;
+        position: absolute;
+        background-color: #666;
+        top: 50%;
+        left: 50%;
+        border-radius: 2px;
+        &:first-child {
+          width: 3px;
+          height: 11px;
+          margin-top: -5.5px; 
+          margin-left: -1.5px;         
+        }
+        &:last-child {
+          width: 11px;
+          height: 3px;
+          top: 50%;
+          left: 50%;
+          margin-top: -1.5px;
+          margin-left: -5.5px;         
+        }
+      }
+      .fa {
+        width: 30px;
+        line-height: 30px;
+        height: 30px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -15px;
+        margin-left: -15px;
+      }
+    }
+    
+    .panel-default {
+      border-color: #efefef;
+      > .panel-heading {
+        background-color: #fff;
+        border-color: #efefef;
+        .accordion-icon {
+          border-color: #efefef;
+        }
+        + .panel-collapse > .panel-body {
+          border-color: #efefef;
+        }
+      }
+    }
+    .panel-var(@color; @background) {
+      border: none;
+      > .panel-heading {
+        color: @color;
+        background-color: @background;
+        border: none;
+        .accordion-icon {
+          border-color: @color;
+          span {
+            background-color: @color;
+          }
+        }
+        + .panel-collapse > .panel-body {
+          border: 1px solid #efefef;
+          border-top-color: transparent;
+        }
+      }
+    }
+    .panel-primary {
+      .panel-var(#fff; @brand-primary); 
+    }
+    .panel-danger {
+      .panel-var(#fff; @brand-danger); 
+    }
+    .panel-success {
+      .panel-var(#fff; @brand-success); 
+    }
+    .panel-info {
+      .panel-var(#fff; @brand-info); 
+    }
+    .panel-warning {
+      .panel-var(#fff; @brand-warning);
+    }
+    .panel-darker {
+      .panel-var(#fff; @panel-darker-heading-bg);
+    }
+  }
+  &-4{
+    &.panel-group {
+      .panel {
+        .panel-heading {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left: 70px;
+        }
+      }
+    }
+    .accordion-icon {
+      width: 56px;
+    }
+  }
+}

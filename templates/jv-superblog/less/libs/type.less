@@ -1,0 +1,804 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: @headings-small-color;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin-top: @line-height-computed;
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+
+h1, .h1 { font-size: @font-size-h1; }
+h2, .h2 { font-size: @font-size-h2; }
+h3, .h3 { font-size: @font-size-h3; }
+h4, .h4 { font-size: @font-size-h4; }
+h5, .h5 { font-size: @font-size-h5; }
+h6, .h6 { font-size: @font-size-h6; }
+
+.heading {
+  &-style1 {
+    > .heading-cont {
+      position: relative;
+      margin-top: 0;
+      margin-bottom: 20px;
+      &:after {
+        content: "";
+        display: block;
+        height: 1px;
+        max-width: 680px;
+        background-color: @brand-primary;
+        margin: 20px auto 0;
+        background: #e8e8e8;
+        background: -moz-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.09) 35%,rgba(0,0,0,.09) 70%,rgba(0,0,0,0) 100%);
+        background: -webkit-gradient(linear,left top,right top,color-stop(0,rgba(0,0,0,0)),color-stop(35%,rgba(0,0,0,.09)),color-stop(70%,rgba(0,0,0,.09)),color-stop(100%,rgba(0,0,0,0)));
+        background: -webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.09) 35%,rgba(0,0,0,.09) 70%,rgba(0,0,0,0) 100%);
+        background: -o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.09) 35%,rgba(0,0,0,.09) 70%,rgba(0,0,0,0) 100%);
+        background: -ms-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.09) 35%,rgba(0,0,0,.09) 70%,rgba(0,0,0,0) 100%);
+        background: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,.09) 35%,rgba(0,0,0,.09) 70%,rgba(0,0,0,0) 100%);
+        .light & {
+          background: rgba(255,255,255,.5);
+          background: -moz-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 35%,rgba(255,255,255,.5) 70%,rgba(255,255,255,0) 100%);
+          background: -webkit-gradient(linear,left top,right top,color-stop(0,rgba(255,255,255,0)),color-stop(35%,rgba(255,255,255,.5)),color-stop(70%,rgba(255,255,255,.5)),color-stop(100%,rgba(255,255,255,0)));
+          background: -webkit-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 35%,rgba(255,255,255,.5) 70%,rgba(255,255,255,0) 100%);
+          background: -o-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 35%,rgba(255,255,255,.5) 70%,rgba(255,255,255,0) 100%);
+          background: -ms-linear-gradient(left,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 35%,rgba(255,255,255,.5) 70%,rgba(255,255,255,0) 100%);
+          background: linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 35%,rgba(255,255,255,.5) 70%,rgba(255,255,255,0) 100%);
+        }
+      }
+    }
+    .heading-sub  {
+      color: @brand-primary;
+    }
+    .heading-desc {
+      max-width: 680px;
+      margin: 20px auto 0;
+      font-size: 16px;
+    }
+  }
+  &-style2 {
+    > *:not(.heading-sub) {
+      position: relative;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      margin-top: 0;
+      display: inline-block;
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: 48px;
+        background-color: #dadada;
+        bottom: -1px;
+        left: 50%;
+        margin-left: -60px;
+      }
+      &:after {
+        right: 50%;
+        left: auto;
+        margin-left: auto;
+        margin-right: -60px;
+      }
+      span {
+        display: block;
+        position: absolute;
+        height: 11px;
+        width: 11px;
+        background-color: fade(#fff, 50%);
+        border: 1px solid #dadada;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -5.5px;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 (@line-height-computed);
+}
+
+.lead {
+  margin-bottom: @line-height-computed;
+  font-size: floor((@font-size-base * 1.15));
+  font-weight: 300;
+  line-height: 1.4;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: (@font-size-base * 1.5);
+  }
+}
+
+a {
+  .transition(all 0.2s ease-in-out);
+  outline: none !important;
+}
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small,
+.small {
+  font-size: floor((100% * @font-size-small / @font-size-base));
+}
+
+mark,
+.mark {
+  background-color: @state-warning-bg;
+  padding: .2em;
+}
+body {
+  .opacity-0 { .opacity(0); }
+  .opacity-1 { .opacity(0.1); }
+  .opacity-2 { .opacity(0.2); }
+  .opacity-3 { .opacity(0.3); }
+  .opacity-4 { .opacity(0.4); }
+  .opacity-5 { .opacity(0.5); }
+  .opacity-6 { .opacity(0.6); }
+  .opacity-7 { .opacity(0.7); }
+  .opacity-8 { .opacity(0.8); }
+  .opacity-9 { .opacity(0.9); }
+  .opacity-10 { .opacity(1); }
+}
+
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+// Transformation
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+
+// Decoration
+.text-underline      { text-decoration: underline;}
+.text-line-through   { text-decoration: line-through;}
+.text-overline       { text-decoration: overline;}
+
+// Text Weight
+.text-thin           { font-weight: 200}
+.text-light          { font-weight: 300}
+.text-normal         { font-weight: 400 !important}
+.text-semi-bold      { font-weight: 600}
+.text-bold           { font-weight: 700;}
+.text-extra-bold     { font-weight: 800;}
+
+//Text style
+.text-italic         { font-style: italic;}
+
+//Text Size:
+.text-size-15        { font-size: 15px;}
+.text-size-18        { font-size: 18px;}
+.text-size-20        { font-size: 20px;}
+.text-size-22        { font-size: 22px;}
+.text-size-24        { font-size: 24px;}
+.text-size-25        { font-size: 25px;}
+.text-size-30        { font-size: 30px;}
+.text-size-35        { font-size: 35px;}
+.text-size-40        { font-size: 40px;}
+.text-size-45        { font-size: 45px;}
+.text-size-50        { font-size: 50px;}
+.text-size-55        { font-size: 55px;}
+.text-size-60        { font-size: 60px;}
+.text-size-65        { font-size: 65px;}
+.text-size-70        { font-size: 70px;}
+.text-size-75        { font-size: 75px;}
+.text-size-80        { font-size: 80px;}
+.text-size-85        { font-size: 85px;}
+.text-size-90        { font-size: 90px;}
+.text-size-95        { font-size: 95px;}
+.text-size-100       { font-size: 100px;}
+.text-size-110       { font-size: 110px;}
+.text-size-120       { font-size: 120px;}
+.text-size-130       { font-size: 130px;}
+.text-size-140       { font-size: 140px;}
+.text-size-150       { font-size: 150px;}
+.text-size-160       { font-size: 160px;}
+.text-size-170       { font-size: 170px;}
+.text-size-180       { font-size: 180px;}
+.text-size-190       { font-size: 190px;}
+.text-size-200       { font-size: 200px;}
+.text-size-250       { font-size: 250px;}
+.text-size-300       { font-size: 300px;}
+
+// Text Spacing
+.text-spacing-04 { letter-spacing: 0.4px;}
+.text-spacing-1 { letter-spacing: 1px;}
+.text-spacing-2 { letter-spacing: 2px;}
+.text-spacing-4 { letter-spacing: 4px;}
+.text-spacing-6 { letter-spacing: 6px;}
+.text-spacing-8 { letter-spacing: 8px;}
+.text-spacing-10 { letter-spacing: 10px;}
+.text-spacing-12 { letter-spacing: 12px;}
+.text-spacing-14 { letter-spacing: 14px;}
+.text-spacing-16 { letter-spacing: 16px;}
+.text-spacing-18 { letter-spacing: 18px;}
+.text-spacing-20 { letter-spacing: 20px;}
+.text-spacing-25 { letter-spacing: 25px;}
+.text-spacing-30 { letter-spacing: 30px;}
+
+
+// Contextual colors
+.text-muted {
+  color: @text-muted !important;
+}
+.text-body {
+  color: @text-color !important;
+}
+.text-headings {
+  &{
+    .text-emphasis-variant(@headings-color);
+  }
+  &.btn:not(:hover) {
+    .text-emphasis-variant(@headings-color) !important;
+  }
+}
+.text-primary {
+  &{
+    .text-emphasis-variant(@brand-primary);
+  }
+  &.btn:not(:hover) {
+    .text-emphasis-variant(@brand-primary) !important;
+  }
+}
+.text-success{
+  &{
+    .text-emphasis-variant(@state-success-text);
+  }
+  &.btn:not(:hover) {
+    .text-emphasis-variant(@state-success-text) !important;
+  }
+}
+.text-info {
+  &{
+    .text-emphasis-variant(@state-info-text);
+  }
+  &.btn:not(:hover) {
+    .text-emphasis-variant(@state-info-text) !important;
+  }
+}
+.text-warning {
+  &{
+    .text-emphasis-variant(@state-warning-text);
+  }
+  &.btn:not(:hover) {
+    .text-emphasis-variant(@state-warning-text) !important;
+  }
+}
+.text-danger {
+  &{
+    .text-emphasis-variant(@state-danger-text);
+  }
+  &.btn:not(:hover) {
+    .text-emphasis-variant(@state-danger-text) !important;
+  }
+}
+.text-white {
+  &{
+    .text-emphasis-variant(#fff);
+  }
+  &.btn:not(:hover) {
+    .text-emphasis-variant(#fff) !important;
+  }
+}
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: #fff;
+  .bg-variant(@brand-primary);
+}
+.bg-success {
+  .bg-variant(@state-success-bg);
+}
+.bg-info {
+  .bg-variant(@state-info-bg);
+}
+.bg-warning {
+  .bg-variant(@state-warning-bg);
+}
+.bg-danger {
+  .bg-variant(@state-danger-bg);
+}
+.bg-white {
+  .bg-variant(#fff);
+}
+.bg-dark {
+  .bg-variant(@bg-fullwidth);
+}
+
+
+// Page header
+// -------------------------
+
+.page-header {
+  padding-bottom: ((@line-height-computed / 2) - 1);
+  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  border-bottom: 1px solid @page-header-border-color;
+}
+
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: (@line-height-computed / 2);
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+// List options
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  .list-unstyled();
+  margin-left: -5px;
+
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: @line-height-computed;
+}
+dt,
+dd {
+  line-height: @line-height-base;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+.dl-horizontal {
+  dd {
+    &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    dt {
+      float: left;
+      width: (@dl-horizontal-offset - 20);
+      clear: left;
+      text-align: right;
+      .text-overflow();
+    }
+    dd {
+      margin-left: @dl-horizontal-offset;
+    }
+  }
+}
+
+// List style
+.jv-list {
+  padding: 0;
+  list-style: none;
+  li {
+    padding: 6px 0;
+    padding-left: 25px;
+    position: relative;
+    .pd-sm& {
+      padding: 4px 0;
+    }
+    > .jv-list-icon {
+      position: absolute;
+      left: 0;
+    }
+    >.jv-list-img {
+      position: absolute;
+      left: 0;
+      max-height: 1.5em;
+      margin-top: 1px;
+    }
+  }
+  &-o-circle,
+  &-o-square{
+    li {
+      > .jv-list-icon{
+        font-size: 0.7em;
+        line-height: 2.7em;
+      }
+    }
+  }
+  &-o-decimal,
+  &-o-decimal-leading-zero,
+  &-o-alphabet,
+  &-o-alphabet-upper
+  {
+    li {
+      > .jv-list-icon{
+        top: 9px;
+      }
+    }
+  }
+  &-o-decimal-leading-zero{
+    li {
+      padding-left: 35px;
+    }
+  }
+  &-m-decimal,
+  &-m-decimal-leading-zero,
+  &-m-alphabet,
+  &-m-alphabet-upper{
+    li {
+      padding-left: 40px;
+    }
+    .jv-list-icon-circle {
+      width: 2.6em;
+      height: 2.6em;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 2.6em;
+      font-size: 0.8em;
+      margin-top: -2px;
+    }
+  }
+  &-icon {
+    li {
+      padding-left: 0;
+      .jv-list-icon {
+        position: static;
+        margin-right: 12px;
+        @media (min-width: 992px) and (max-width: 1199px) {
+          margin-right: 5px;
+        }
+      }
+    }
+    &-circle,
+    &-square{
+      &-border,
+      &-background {
+        .jv-list-icon {
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          text-align: center;
+          font-size: 0.8em;
+          top: 9px;
+          .transition(all 0.2s ease-in-out);
+        }
+      }
+      &-border{
+        li:hover {
+          .jv-list-icon {
+            border-color: #31aae2 !important;
+            color: #31aae2 !important;
+            background-color: #fff;
+            .light & {
+              border-color: #fff !important;
+            }
+          }          
+        }
+        .jv-list-icon {
+          border: 2px solid transparent;
+        }
+      }
+      &-background{
+        li:hover {
+          .jv-list-icon {
+            background-color: #31aae2 !important;
+            color: #fff !important;
+          }          
+        }
+      }
+    }
+    &-circle{
+      &-border{
+        .jv-list-icon {
+          border: 1px solid transparent;
+          line-height: 18px;
+          border-radius: 50%;
+        }
+        li:hover {
+          .jv-list-icon {
+            border-color: #31aae2 !important;
+            color: #fff !important;
+            background-color: #31aae2;
+            .light & {
+              border-color: #fff !important;
+              color: #31aae2 !important;
+              background-color: #fff;
+            }
+          }          
+        }
+      }
+      &-background{
+        .jv-list-icon {
+          border-radius: 50%;
+        }
+      }
+    }
+    &-square{
+      &-border{
+        .jv-list-icon {
+          line-height: 1.7em;
+        }
+      }
+    }
+  }
+  &-none {
+    li {
+      padding-left: 0;
+    }
+  }
+  &.list-small {
+    li {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted @abbr-border-color;
+}
+.initialism {
+  font-size: 90%;
+  .text-uppercase();
+}
+
+// Blockquotes
+blockquote {
+  padding: 0 0 0 @line-height-computed;
+  margin: 0 0 @line-height-computed;
+  font-size: @blockquote-font-size - 0.25;
+  border-left: 2px solid @blockquote-border-color;
+  font-family: inherit;
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  p,
+  ul,
+  ol {
+    margin-top: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    display: block;
+    font-size: 95%; // back to default font-size
+    line-height: @line-height-base;
+    color: @blockquote-small-color;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+  .jv-quote-box1 & {
+    padding: 30px 40px 25px 74px;
+    border: none;
+    background-color: #f9f9f9;
+    position: relative;
+    p {
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .jv-quote-box-icon {
+      position: absolute;
+      left: 30px;
+      top: 35px;
+      color: #f1f1f1;
+      font-size: 30px;
+    }
+  }
+  .jv-quote-box2 & {
+    border: none;
+    border-right: 1px solid #f1f1f1;
+    margin-bottom: 0;
+    padding: 30px 40px 15px 74px;
+    position: relative;
+    p {
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .jv-quote-box-icon {
+      position: absolute;
+      left: 30px;
+      top: 35px;
+      color: #f1f1f1;
+      font-size: 30px;
+    }
+  }
+  .typography & p {
+    margin-top: 0;
+  }
+}
+
+.jv-quote-box2{
+  border: 1px solid #f1f1f1;
+  border-width: 1px 0 0 1px;
+  padding-bottom: 20px;
+  position: relative;
+  margin-bottom: @line-height-computed;
+  &:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    border-bottom: 1px solid #f1f1f1;
+    left: 0;
+    right: 20px;
+    bottom: 0;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    border-width: 0 0 20px 20px;
+    border-style: solid;
+    border-color: transparent transparent transparent #f1f1f1;
+    bottom: 0;
+    right: 0;
+  }
+}
+  
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  border-right: 5px solid @blockquote-border-color;
+  border-left: 0;
+  text-align: right;
+
+  // Account for citation
+  footer,
+  small,
+  .small {
+    &:before { content: ''; }
+    &:after {
+      content: '\00A0 \2014'; // nbsp, em dash
+    }
+  }
+}
+
+// Addresses
+address {
+  margin-bottom: @line-height-computed;
+  font-style: normal;
+  line-height: @line-height-base;
+}
+
+.typography p {
+  margin-top: 0;
+}
+
+// Dropcap
+.jv-dropcap {
+  float: left;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.6em;
+  margin: 6px 15px 15px 0;
+  line-height: 1.6em;
+  text-align: center;
+  overflow: hidden;
+  text-transform: uppercase;
+  &-circle{
+    width: 1.6em;
+    border-radius: 50%;
+  }
+  &-square {
+
+  }
+  &-rounded {
+    border-radius: 5px;
+  }
+  &-halfrounded {
+    height: 1.7em;
+    line-height: 1.5em;
+    border-radius: 0 0 15px 15px;
+  }
+  &-nowrapper {
+    width: auto;
+    height: auto;
+    line-height: 1;
+    margin: 0 15px 15px 0;
+  }
+}
+
+// Image 
+img {
+  max-width: 100%;
+}
+
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+
+.pull-none {
+  float: none !important;
+}

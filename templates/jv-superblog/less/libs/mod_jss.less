@@ -1,0 +1,103 @@
+.sl-arrow {
+	display: inline-block;
+	width: 1.66em;
+	height: 1.66em;
+	line-height: 1.66em;
+	border: 2px solid #fff;
+	text-align: center;
+	font-size: 30px;
+	.transition(all 0.2s ease-in-out);
+	&,
+	&:hover,
+	&:focus {
+		color: #fff;
+	}
+	&:hover {
+		background-color: fade(#fff, 5%);
+	}
+	&-big {
+		font-size: 3.38em;
+		width: 1.86em;
+		height: 1.86em;
+		line-height: 1.86em;
+	}
+	&-noborder {
+
+	}
+}
+
+
+.tp-bullets.simplebullets.round .bullet{
+	background:none;	
+	float: left; 
+	border: 1px solid #fff;
+	border-radius: 50%;
+	width: 18px;
+	height: 18px;
+	.transition(all 0.2s ease-in-out);
+	.opacity(0.8);
+	&:hover {
+		.opacity(1);
+	}
+	&.selected {
+		background-color: #fff;
+	}
+}
+.tparrows.preview2 {
+	background-color: fade(#fff, 90%);
+	&:after {
+		margin-top: -22px;
+	}
+}
+
+.tp-caption.text-border {
+	border: 5px solid #fff;
+	line-height: 1 !important;
+	padding: 0.3em 0.5em !important;
+}
+
+.tp-caption .btn-nav {
+	width: 26px;
+	height: 26px;
+	line-height: 25px;
+	text-align: center;
+	padding: 0;
+	background-color: #f9f9f9;
+	font-size: 13.5px;
+	color: @text-color;
+	@media (max-width: 992px) {
+		display: none;
+	}
+	&:hover {
+		background-color: @brand-primary;
+		color: #fff;
+	}
+}
+.tparrows.default.square-old {
+	cursor: pointer;
+	background: #000;
+	background: rgba(0,0,0,0.5);
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	position: absolute;
+	display: block;
+	top: 50% !important;
+	.transition(all 0.2s ease-in-out);
+	&:hover {
+		background-color: #000;
+	}
+	&:before {
+		display: inline-block;
+		font-family: "FontAwesome";
+		font-size: 22px;
+		color: #fff;
+	}
+	&.tp-leftarrow:before {
+		content: "\f104";
+	}
+	&.tp-rightarrow:before {
+		content: "\f105";
+	}
+}

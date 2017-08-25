@@ -1,0 +1,87 @@
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+.pagination {
+  display: block;
+  padding-left: 0;
+  margin: 0;
+  .text-center();
+  > li {
+    display: inline-block; // Remove list-style and block-level defaults
+    > a,
+    > span {
+      display: block;
+      position: relative;
+      padding: 5px 12px;
+      line-height: @line-height-base;
+      text-decoration: none;
+      color: @pagination-color;
+      background-color: @pagination-bg;
+      border: 1px solid @pagination-border;
+      border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+      background-color: #fff;
+      border-radius: 3px;
+      margin: 0 2.5px;
+      min-width: 40px;
+      @media (max-width: 991px) {
+        margin: 5px;
+      }
+    }
+  }
+
+  > li > a,
+  > li > span {
+    &:hover,
+    &:focus {
+      z-index: 3;
+      color: @pagination-hover-color;
+      // background-color: @pagination-hover-bg;
+      // border-color: @pagination-hover-border;
+    }
+  }
+
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 2;
+      color: @pagination-active-color;
+      // background-color: @pagination-active-bg;
+      // border-color: @pagination-active-border;
+      cursor: default;
+    }
+  }
+
+  > .disabled {
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus {
+      color: @pagination-disabled-color;
+      // background-color: @pagination-disabled-bg;
+      // border-color: @pagination-disabled-border;
+      cursor: @cursor-disabled;
+    }
+  }
+  &-wrap {
+    .counter {
+      line-height: 36px;
+    }
+  }
+}
+
+// Sizing
+// --------------------------------------------------
+
+// Large
+.pagination-lg {
+  .pagination-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+
+// Small
+.pagination-sm {
+  .pagination-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}

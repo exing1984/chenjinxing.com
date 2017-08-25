@@ -1,0 +1,151 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: @alert-padding (@alert-padding * 2) ; 
+  margin-bottom: @line-height-computed;
+  border: 1px solid transparent;
+  border-radius: @alert-border-radius;
+  .clearfix();
+  // Headings for larger alerts
+  h4 {
+    margin-top: 0;
+    // Specified for the h4 to prevent conflicts of changing @headings-color
+    color: inherit;
+  }
+  h5 {
+    font-size: 15px;
+  }
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: @alert-link-font-weight;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+  .alert-icon{
+    margin-right: 10px;
+  }
+  .alert-head {
+    margin-top: 0;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible {
+  padding-right: (@alert-padding * 4);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: 4px;
+    right: -8px;
+    color: inherit;
+    opacity: 0.9;
+    width: 16px;
+    height: 16px;
+    background: #666 !important;
+    text-shadow: none;
+    line-height: 16px;
+    border-radius: 100%;
+    color: #fff !important;
+    font-size: 13px;
+    text-align: center; 
+    &:hover {
+      background-color: @brand-primary !important;
+    }
+  }
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+.alert-general,
+.alert-notice {
+  .alert-variant(@alert-general-bg; @alert-general-border; @alert-general-text);
+}
+
+.alert-success,
+.alert-message {
+  .alert-variant(#eee; #ccc; #666);
+}
+
+.alert-info {
+  .alert-variant(#fff; @brand-primary; @brand-primary);
+}
+
+.alert-warning {
+  .alert-variant(#fff; #ccc; @brand-primary);
+}
+
+.alert-danger,
+.alert-error {
+  .alert-variant( @brand-primary; @brand-primary; #fff);
+}
+.alert-help {
+  .alert-variant(@alert-help-bg; @alert-help-border; @alert-help-text);
+}
+
+
+.alert-style-1 {
+  padding-left: 120px;
+  position: relative;
+  min-height: 130px;
+  padding-top: 26px;
+  padding-bottom: 20px;
+  @media (max-width: 991px) {
+    padding: 20px 15px;
+  }
+  .alert-link {
+  }
+  .alert-icon {
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    margin-top: -28px;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    line-height: 56px;
+    border-radius: 50%;
+    font-size: 35px;
+    @media (max-width: 991px) {
+      position: static;
+      float: left;
+      top: 0;
+      margin: 0;
+      width: auto;
+      height: auto;
+      margin-right: 20px;
+      line-height: 1;
+    }
+  }
+  .alert-head {
+      margin-top: 0;
+      color: inherit;
+  }
+  .close {
+    top: -10px;
+    right: 0;
+    @media (max-width: 991px) {
+      top:-6px;
+    }
+  }
+}
